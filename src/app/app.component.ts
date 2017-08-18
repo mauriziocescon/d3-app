@@ -1,6 +1,8 @@
 import template from "./app.component.html";
 import "./app.component.scss";
 
+import * as d3 from "d3";
+
 export default class AppComponent {
     public html: any;
 
@@ -8,12 +10,22 @@ export default class AppComponent {
         this.html = template;
     }
 
-    public setupViews(): void {
-        const buttonExample = document.getElementById("example");
+    public setupComponent(): void {
+        const buttonExample = document.getElementById("app.color");
         buttonExample.addEventListener("click", this.handleButtonExample.bind(this));
     }
 
     protected handleButtonExample(): void {
-        alert("Hello world!!");
+        this.changeLabelsBackgroundColor();
+    }
+
+    protected changeLabelsBackgroundColor(): void {
+       const elements = d3.selectAll(".hello-label");
+       elements.style("color", this.randomColor());
+    }
+
+    private randomColor(): string {
+        const index = Math.round((Math.random() * 100) % 3);
+        return ["purple", "blue", "green"][index];
     }
 }

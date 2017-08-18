@@ -17,7 +17,7 @@ class Main {
 
         // Append the masonry gallery element to the DOM
         this.rootElement.insertAdjacentHTML("afterbegin", this.appComponent.html);
-        this.appComponent.setupViews();
+        this.appComponent.setupComponent();
     }
 }
 
