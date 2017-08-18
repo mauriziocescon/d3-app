@@ -11,8 +11,19 @@ export default class AppComponent {
     }
 
     public setupComponent(): void {
-        const buttonExample = document.getElementById("app.color");
+        const buttonExample = document.getElementById("app-change-color");
         buttonExample.addEventListener("click", this.handleButtonExample.bind(this));
+
+        this.drawBarChart();
+    }
+
+    protected drawBarChart(): void {
+        d3.select("#app-barchart")
+            .selectAll("div")
+            .data([4, 8, 15, 16, 23, 42])
+            .enter()
+            .append("div")
+            .style("height", (d) => d + "px");
     }
 
     protected handleButtonExample(): void {
@@ -20,10 +31,10 @@ export default class AppComponent {
     }
 
     protected changeLabelsBackgroundColor(): void {
-       const elements = d3.selectAll(".hello-label")
-           .transition()
-           .duration(300);
-       elements.style("color", this.randomColor());
+        const elements = d3.selectAll(".hello-label")
+            .transition()
+            .duration(700);
+        elements.style("color", this.randomColor());
     }
 
     private randomColor(): string {
