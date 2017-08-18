@@ -1,22 +1,23 @@
 import AppComponent from "./app/app.component";
 
 class Main {
-    public static appComponent: any;
-    public static siteContent: any;
+    public static appComponent: AppComponent;
+    public static rootElement: HTMLElement;
 
     public static appReady(): void {
         Main.loadApp();
     }
 
     protected static loadApp(): void {
-        // Setup appComponent
+        // Get a reference for the app content
+        this.rootElement = document.getElementById("root");
+
+        // Create appComponent
         this.appComponent = new AppComponent();
 
-        // Get a reference for the app content
-        this.siteContent = document.getElementById("root");
-
         // Append the masonry gallery element to the DOM
-        this.siteContent.insertAdjacentHTML("afterbegin", this.appComponent.element);
+        this.rootElement.insertAdjacentHTML("afterbegin", this.appComponent.html);
+        this.appComponent.setupViews();
     }
 }
 
