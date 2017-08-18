@@ -31,10 +31,10 @@ export default class AppComponent {
     }
 
     protected changeLabelsBackgroundColor(): void {
-        const elements = d3.selectAll(".hello-label")
+        d3.selectAll(".hello-label")
             .transition()
-            .duration(700);
-        elements.style("color", this.randomColor());
+            .duration(700)
+            .style("color", this.randomColor());
     }
 
     private randomColor(): string {
