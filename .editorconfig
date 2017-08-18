@@ -1,0 +1,23 @@
+# Editor configuration, see http://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+[{.eslintrc,.babelrc,.stylelintrc,.travis.yml,*.json}]
+indent_size = 2
+
+[*.css]
+indent_size = 2
+
+[*.scss]
+indent_size = 2
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
