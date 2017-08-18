@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "webpack --progress --colors --env.name=prod",
-    "serve": "webpack-dev-server -d --progress --colors --env.name=dev"
+    "serve": "webpack-dev-server --d --progress --colors --env.name=dev"
   },
   "repository": {
     "type": "git",
