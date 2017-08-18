@@ -21,6 +21,10 @@ module.exports = function (env) {
             clientLogLevel: "info",
             compress: true,
             contentBase: path.resolve(__dirname, "dist"),
+            inline: true,
+            historyApiFallback: true,
+            hot: true,
+            open: true,
             overlay: {
                 warnings: true,
                 errors: true

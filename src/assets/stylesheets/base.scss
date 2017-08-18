@@ -1,5 +1,12 @@
 // -------------------------------------------------------
 // App variables
 
+//== Typography
+$font-size-base: 26px;
+
 // -------------------------------------------------------
-// Third party libs variables
+// Common style
+
+body {
+  font-size: $font-size-base !important;
+}
