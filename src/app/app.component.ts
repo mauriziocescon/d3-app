@@ -33,12 +33,12 @@ export default class AppComponent {
     protected changeLabelsBackgroundColor(): void {
         d3.selectAll(".hello-label")
             .transition()
-            .duration(700)
+            .duration(500)
             .style("color", this.randomColor());
     }
 
     private randomColor(): string {
-        const index = Math.round((Math.random() * 100) % 3);
-        return ["purple", "blue", "green"][index];
+        const index = Math.round((Math.random() * 100) % 7);
+        return ["purple", "blue", "green", "black", "orange", "gray"][index];
     }
 }
