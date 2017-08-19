@@ -38,7 +38,11 @@ module.exports = function (env) {
             new CopyPlugin([{
                 from: "src/index.html"
             }, {
+                from: "src/manifest.json"
+            },  {
                 from: "src/assets/i18n", to: "assets/i18n"
+            }, {
+                from: "src/assets/imgs"
             }]),
 
             new CheckerPlugin(),
@@ -102,6 +106,7 @@ module.exports = function (env) {
                     test: /\.html?$/,
                     exclude: /index.html$/,
                     use: [
+                        {loader: "resolve-url-loader"},
                         {loader: "html-loader", options: {exportAsEs6Default: true}}
                     ]
                 },
