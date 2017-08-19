@@ -8,7 +8,7 @@ import {
 export default class TransitionLabelComponent {
     public el: HTMLElement;
 
-    protected label: HTMLElement;
+    protected cardLabel: HTMLElement;
 
     constructor() {
         this.render();
@@ -19,7 +19,7 @@ export default class TransitionLabelComponent {
     }
 
     protected changeLabelsBackgroundColor(): void {
-        d3.select(this.label)
+        d3.select(this.cardLabel)
             .transition()
             .duration(500)
             .style("color", this.randomColor());
@@ -36,24 +36,39 @@ export default class TransitionLabelComponent {
         this.el = document.createElement("div");
         this.el.classList.add(transitionLabelComponent);
 
-        // Label
-        this.label = document.createElement("div");
-        this.label.classList.add(helloLabel);
-        this.label.appendChild(document.createTextNode("Hello world!"));
-        this.el.appendChild(this.label);
+        // Bootstrap card
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.style.marginBottom = "10px";
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+        card.appendChild(cardBody);
+        this.el.appendChild(card);
 
-        // Button
-        const button = document.createElement("button");
+        // Card title
+        this.cardLabel = document.createElement("h4");
+        this.cardLabel.classList.add(helloLabel, "card-title");
+        this.cardLabel.appendChild(document.createTextNode("d3.js test: style transition"));
+        cardBody.appendChild(this.cardLabel);
+
+        // Card description
+        const cardDescription = document.createElement("p");
+        cardDescription.classList.add("card-text");
+        cardDescription.appendChild(document.createTextNode("Click the button in order to change the color"));
+        cardBody.appendChild(cardDescription);
+
+        // Card button
+        const button = document.createElement("a");
         button.classList.add("btn", "btn-primary");
         button.appendChild(document.createTextNode("Change color"));
 
-        // Font Awesome
+        // Card button font awesome
         const fa = document.createElement("span");
         fa.classList.add("fa", "fa-adjust");
         fa.style.marginLeft = "10px";
         button.appendChild(fa);
 
         button.addEventListener("click", this.handleButtonExample.bind(this));
-        this.el.appendChild(button);
+        cardBody.appendChild(button);
     }
 }

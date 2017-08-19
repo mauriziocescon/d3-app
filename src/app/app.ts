@@ -45,7 +45,7 @@ export default class AppComponent {
 
         // BarChart
         this.barChartComponent = new BarChartComponent();
-        this.barChartComponent.el.classList.add("col-12");
+        this.barChartComponent.el.classList.add("col-12", "col-md-6");
         bootstrapRow.appendChild(this.barChartComponent.el);
     }
 }

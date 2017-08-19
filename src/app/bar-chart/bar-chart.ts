@@ -32,10 +32,25 @@ export default class BarChartComponent {
         this.el = document.createElement("div");
         this.el.classList.add(barChartComponent);
 
+        // Bootstrap card
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.style.marginBottom = "10px";
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+        card.appendChild(cardBody);
+        this.el.appendChild(card);
+
+        // Card title
+        const cardLabel = document.createElement("h4");
+        cardLabel.classList.add("card-title");
+        cardLabel.appendChild(document.createTextNode("d3.js test: draw a chart"));
+        cardBody.appendChild(cardLabel);
+
         // BarChart
         this.barChart = document.createElement("div");
         this.barChart.classList.add(barChart);
-        this.el.appendChild(this.barChart);
+        cardBody.appendChild(this.barChart);
 
         // Draw BarChart
         this.drawBarChart();

@@ -21,15 +21,19 @@ Starter Kit for a d3 application
 
 3. [Typescript](https://www.typescriptlang.org/)
 
-4. [Sass](http://sass-lang.com/) 
+4. [Bootstrap](https://getbootstrap.com)
 
-5. [Webpack](https://webpack.js.org/) 
+5. [Font Awesome](http://fontawesome.io)
 
-6. [Babel](https://babeljs.io/) 
+6. [Sass](http://sass-lang.com/) 
 
-7. [TSLint](https://palantir.github.io/tslint/) 
+7. [Webpack](https://webpack.js.org/) 
 
-8. [Stylelint](https://stylelint.io/) 
+8. [Babel](https://babeljs.io/) 
+
+9. [TSLint](https://palantir.github.io/tslint/) 
+
+10. [Stylelint](https://stylelint.io/) 
 
 ## Working with editors/IDEs supporting “safe write”
 

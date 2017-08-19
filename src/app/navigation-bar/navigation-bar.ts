@@ -25,7 +25,7 @@ export default class NavigationBarComponent {
 
         const navLink  = document.createElement("a");
         navLink.classList.add("nav-link");
-        navLink.appendChild(document.createTextNode("Demo"));
+        navLink.appendChild(document.createTextNode("d3.js demo"));
 
         navItem.appendChild(navLink);
         itemList.appendChild(navItem);
