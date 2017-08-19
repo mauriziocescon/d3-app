@@ -1,8 +1,8 @@
-import AppComponent from "./app/app.component";
+import AppComponent from "./app/app";
 
 class Main {
-    public static appComponent: AppComponent;
-    public static rootElement: HTMLElement;
+    public static app: AppComponent;
+    public static rootEl: HTMLElement;
 
     public static appReady(): void {
         Main.loadApp();
@@ -10,14 +10,13 @@ class Main {
 
     protected static loadApp(): void {
         // Get a reference for the app content
-        this.rootElement = document.getElementById("root");
+        this.rootEl = document.getElementById("root");
 
         // Create appComponent
-        this.appComponent = new AppComponent();
+        this.app = new AppComponent();
 
-        // Append the masonry gallery element to the DOM
-        this.rootElement.insertAdjacentHTML("afterbegin", this.appComponent.html);
-        this.appComponent.setupComponent();
+        // Append appComponent element to the DOM
+        this.rootEl.appendChild(this.app.el);
     }
 }
 
