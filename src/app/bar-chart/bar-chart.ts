@@ -5,9 +5,12 @@ import "./bar-chart.scss";
 export default class BarChartComponent {
     public el: HTMLElement;
 
+    protected barColor: string;
     protected barChart: HTMLElement;
 
-    constructor() {
+    constructor(barColor: string = "#4285f4") {
+        this.barColor = barColor;
+
         this.render();
     }
 
@@ -17,6 +20,7 @@ export default class BarChartComponent {
             .data([4, 8, 15, 16, 23, 42])
             .enter()
             .append("div")
+            .style("background", this.barColor)
             .style("height", (d) => d + "px");
     }
 

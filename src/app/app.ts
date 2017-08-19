@@ -22,6 +22,10 @@ export default class AppComponent {
         this.transitionLabelComponent = new TransitionLabelComponent();
         this.el.appendChild(this.transitionLabelComponent.el);
 
+        // Another Transition label
+        this.transitionLabelComponent = new TransitionLabelComponent();
+        this.el.appendChild(this.transitionLabelComponent.el);
+
         // BarChart
         this.barChartComponent = new BarChartComponent();
         this.el.appendChild(this.barChartComponent.el);
