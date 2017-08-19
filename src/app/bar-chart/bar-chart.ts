@@ -15,6 +15,9 @@ export default class BarChartComponent {
         this.barColor = barColor;
 
         this.render();
+
+        // tslint:disable-next-line
+        console.log(barChart + " " + barChartComponent);
     }
 
     protected drawBarChart(): void {
@@ -24,13 +27,13 @@ export default class BarChartComponent {
             .enter()
             .append("div")
             .style("background", this.barColor)
-            .style("height", (d) => d + "px");
+            .style("height", (d) => d * 5 + "px");
     }
 
     protected render(): void {
         // Create external div
         this.el = document.createElement("div");
-        this.el.classList.add(barChartComponent);
+        this.el.classList.add(barChartComponent, "container-fluid");
 
         // BarChart
         this.barChart = document.createElement("div");

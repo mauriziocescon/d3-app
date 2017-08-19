@@ -1,12 +1,25 @@
 // -------------------------------------------------------
 // App variables
 
-//== Typography
-$font-size-base: 60px;
+$primary-color: #00b233;
+$accent-color: #fff;
+$secondary-color: #333;
+$info-color: #03a9f4;
+$success-color: #4caf50;
+$warning-color: #ff9800;
+$danger-color: #f44336;
+$gray-color: #666;
 
 // -------------------------------------------------------
-// Common style
+// Bootstrap variables
 
-body {
-  font-size: $font-size-base !important;
-}
+//== Colors
+$brand-primary: $primary-color;
+$brand-success: $success-color;
+$brand-info: $info-color;
+$brand-warning: $warning-color;
+$brand-danger: $danger-color;
+$brand-inverse: #292b2c;
+
+//== Typography
+$font-size-base: 1rem;

@@ -34,13 +34,18 @@
   ],
   "dependencies": {
     "babel-polyfill": "6.26.0",
+    "bootstrap": "next",
     "d3": "4.10.0",
-    "jquery": "3.2.1"
+    "font-awesome": "4.7.0",
+    "jquery": "3.2.1",
+    "popper.js": "1.12.3"
   },
   "devDependencies": {
     "@types/d3": "4.10.0",
+    "@types/bootstrap": "3.3.35",
     "@types/jquery": "3.2.11",
     "@types/node": "8.0.24",
+    "@types/popper.js": "1.10.0",
     "awesome-typescript-loader": "3.2.3",
     "babel": "6.23.0",
     "babel-core": "6.26.0",

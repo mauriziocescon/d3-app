@@ -2,8 +2,9 @@
   .bar-chart {
     div {
       display: inline-block;
-      width: 20px;
+      width: 50px;
       margin-right: 3px;
+      border: 1px solid black;
     }
   }
 }

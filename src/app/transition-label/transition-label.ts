@@ -35,7 +35,7 @@ export default class TransitionLabelComponent {
     protected render(): void {
         // Create external div
         this.el = document.createElement("div");
-        this.el.classList.add(transitionLabelComponent);
+        this.el.classList.add(transitionLabelComponent, "container-fluid");
 
         // Label
         this.label = document.createElement("div");
@@ -45,7 +45,7 @@ export default class TransitionLabelComponent {
 
         // Button
         const button = document.createElement("button");
-        button.classList.add(colorButton);
+        button.classList.add(colorButton, "btn", "btn-primary");
         button.appendChild(document.createTextNode("Change color"));
         button.addEventListener("click", this.handleButtonExample.bind(this));
         this.el.appendChild(button);

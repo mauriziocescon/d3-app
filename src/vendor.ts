@@ -1,6 +1,7 @@
 import "babel-polyfill";
 import "d3";
 import "jquery";
+import "popper.js";
 
 /* tslint:disable:no-string-literal */
 import * as $ from "jquery";

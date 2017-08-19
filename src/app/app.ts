@@ -16,7 +16,7 @@ export default class AppComponent {
     protected render(): void {
         // Create external div
         this.el = document.createElement("div");
-        this.el.classList.add(appComponent);
+        this.el.classList.add(appComponent, "container-fluid");
 
         // Transition label
         this.transitionLabelComponent = new TransitionLabelComponent();
