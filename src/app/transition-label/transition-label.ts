@@ -34,7 +34,7 @@ export default class TransitionLabelComponent {
     protected render(): void {
         // Create external div
         this.el = document.createElement("div");
-        this.el.classList.add(transitionLabelComponent, "container-fluid");
+        this.el.classList.add(transitionLabelComponent);
 
         // Label
         this.label = document.createElement("div");
@@ -46,6 +46,13 @@ export default class TransitionLabelComponent {
         const button = document.createElement("button");
         button.classList.add("btn", "btn-primary");
         button.appendChild(document.createTextNode("Change color"));
+
+        // Font Awesome
+        const fa = document.createElement("span");
+        fa.classList.add("fa", "fa-adjust");
+        fa.style.marginLeft = "10px";
+        button.appendChild(fa);
+
         button.addEventListener("click", this.handleButtonExample.bind(this));
         this.el.appendChild(button);
     }

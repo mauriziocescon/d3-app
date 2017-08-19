@@ -30,7 +30,7 @@ export default class BarChartComponent {
     protected render(): void {
         // Create external div
         this.el = document.createElement("div");
-        this.el.classList.add(barChartComponent, "container-fluid");
+        this.el.classList.add(barChartComponent);
 
         // BarChart
         this.barChart = document.createElement("div");
