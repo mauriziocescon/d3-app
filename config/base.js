@@ -71,10 +71,26 @@ module.exports = function (env) {
                 // compiles Sass to CSS
                 {
                     test: /\.scss$/,
+                    exclude: /styles.scss$/,
                     use: ExtractTextPlugin.extract({
                         fallback: "style-loader",
                         use: [
                             {loader: "css-loader", options: {camelCase: true, modules: true}},
+                            {loader: "resolve-url-loader"},
+                            {loader: "sass-loader", options: {sourceMap: true}}
+                        ]
+                    })
+                },
+
+                // creates style nodes from JS strings
+                // translates CSS into CommonJS
+                // compiles Sass to CSS
+                {
+                    test: /styles.scss$/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: "style-loader",
+                        use: [
+                            {loader: "css-loader", options: {modules: false}},
                             {loader: "resolve-url-loader"},
                             {loader: "sass-loader", options: {sourceMap: true}}
                         ]

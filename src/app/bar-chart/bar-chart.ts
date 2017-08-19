@@ -15,9 +15,6 @@ export default class BarChartComponent {
         this.barColor = barColor;
 
         this.render();
-
-        // tslint:disable-next-line
-        console.log(barChart + " " + barChartComponent);
     }
 
     protected drawBarChart(): void {

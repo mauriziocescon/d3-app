@@ -1,5 +1,4 @@
 import AppComponent from "./app/app";
-import "./styles.scss";
 
 class Main {
     public static app: AppComponent;

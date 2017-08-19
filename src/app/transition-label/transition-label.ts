@@ -1,7 +1,6 @@
 import * as d3 from "d3";
 
 import {
-    colorButton,
     helloLabel,
     transitionLabelComponent,
 } from "./transition-label.scss";
@@ -45,7 +44,7 @@ export default class TransitionLabelComponent {
 
         // Button
         const button = document.createElement("button");
-        button.classList.add(colorButton, "btn", "btn-primary");
+        button.classList.add("btn", "btn-primary");
         button.appendChild(document.createTextNode("Change color"));
         button.addEventListener("click", this.handleButtonExample.bind(this));
         this.el.appendChild(button);

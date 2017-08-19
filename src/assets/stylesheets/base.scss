@@ -1,25 +1,29 @@
 // -------------------------------------------------------
 // App variables
 
-$primary-color: #00b233;
-$accent-color: #fff;
-$secondary-color: #333;
+$primary-color: #00b233 !default;
+$accent-color: #fff !default;
+$secondary-color: #333 !default;
 $info-color: #03a9f4;
 $success-color: #4caf50;
 $warning-color: #ff9800;
 $danger-color: #f44336;
-$gray-color: #666;
+$gray-color: #666 !default;
 
 // -------------------------------------------------------
 // Bootstrap variables
 
 //== Colors
-$brand-primary: $primary-color;
-$brand-success: $success-color;
-$brand-info: $info-color;
-$brand-warning: $warning-color;
-$brand-danger: $danger-color;
-$brand-inverse: #292b2c;
+$theme-colors: (
+  primary: $primary-color,
+  secondary: $secondary-color,
+  success: $success-color,
+  info: $info-color,
+  warning: $warning-color,
+  danger: $danger-color,
+  light: $gray-color,
+  dark: $gray-color
+);
 
 //== Typography
 $font-size-base: 1rem;
