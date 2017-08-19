@@ -1,6 +1,9 @@
 import * as d3 from "d3";
 
-import "./bar-chart.scss";
+import {
+    barChart,
+    barChartComponent,
+} from "./bar-chart.scss";
 
 export default class BarChartComponent {
     public el: HTMLElement;
@@ -27,11 +30,11 @@ export default class BarChartComponent {
     protected render(): void {
         // Create external div
         this.el = document.createElement("div");
-        this.el.classList.add("bar-chart-component");
+        this.el.classList.add(barChartComponent);
 
         // BarChart
         this.barChart = document.createElement("div");
-        this.barChart.classList.add("bar-chart");
+        this.barChart.classList.add(barChart);
         this.el.appendChild(this.barChart);
 
         // Draw BarChart

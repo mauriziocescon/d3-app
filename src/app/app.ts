@@ -1,4 +1,4 @@
-import "./app.scss";
+import { appComponent } from "./app.scss";
 
 import BarChartComponent from "./bar-chart/bar-chart";
 import TransitionLabelComponent from "./transition-label/transition-label";
@@ -16,7 +16,7 @@ export default class AppComponent {
     protected render(): void {
         // Create external div
         this.el = document.createElement("div");
-        this.el.classList.add("app-component");
+        this.el.classList.add(appComponent);
 
         // Transition label
         this.transitionLabelComponent = new TransitionLabelComponent();
