@@ -31,7 +31,6 @@ export default class AppComponent {
         // Transition label
         this.transitionLabelComponent = new TransitionLabelComponent();
         this.transitionLabelComponent.el.classList.add("col-12", "col-md-6");
-        this.transitionLabelComponent.el.style.backgroundColor = "lightgrey";
         bootstrapRow.appendChild(this.transitionLabelComponent.el);
 
         // Another Transition label
