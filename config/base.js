@@ -42,7 +42,7 @@ module.exports = function (env) {
             },  {
                 from: "src/assets/i18n", to: "assets/i18n"
             }, {
-                from: "src/assets/imgs"
+                from: "src/assets/imgs", to: "assets/imgs"
             }]),
 
             new CheckerPlugin(),
@@ -106,7 +106,6 @@ module.exports = function (env) {
                     test: /\.html?$/,
                     exclude: /index.html$/,
                     use: [
-                        {loader: "resolve-url-loader"},
                         {loader: "html-loader", options: {exportAsEs6Default: true}}
                     ]
                 },
