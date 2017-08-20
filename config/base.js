@@ -79,9 +79,11 @@ module.exports = function (env) {
                     use: ExtractTextPlugin.extract({
                         fallback: "style-loader",
                         use: [
-                            {loader: "css-loader", options: {camelCase: true, modules: true}},
+                            {loader: "css-loader", options: {camelCase: true, modules: true, minimize: true}},
                             {loader: "resolve-url-loader"},
-                            {loader: "sass-loader", options: {sourceMap: true}}
+                            {loader: "sass-loader", options: {sourceMap: true}},
+                            // make base classes / variables available everywhere
+                            {loader: 'sass-resources-loader', options: {resources: "./src/assets/stylesheets/base.scss"}}
                         ]
                     })
                 },
@@ -89,12 +91,14 @@ module.exports = function (env) {
                 // creates style nodes from JS strings
                 // translates CSS into CommonJS
                 // compiles Sass to CSS
+                //
+                // global sass
                 {
                     test: /styles.scss$/,
                     use: ExtractTextPlugin.extract({
                         fallback: "style-loader",
                         use: [
-                            {loader: "css-loader", options: {modules: false}},
+                            {loader: "css-loader", options: {modules: false, minimize: true}},
                             {loader: "resolve-url-loader"},
                             {loader: "sass-loader", options: {sourceMap: true}}
                         ]
