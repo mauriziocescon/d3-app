@@ -47,6 +47,11 @@ module.exports = function (env) {
 
             new CheckerPlugin(),
 
+            // avoid processing *.scss.d.ts
+            new webpack.WatchIgnorePlugin([
+                /css\.d\.ts$/
+            ]),
+
             new ExtractTextPlugin("[name].[hash].css"),
 
             // insert file dynamically
@@ -79,7 +84,7 @@ module.exports = function (env) {
                     use: ExtractTextPlugin.extract({
                         fallback: "style-loader",
                         use: [
-                            {loader: "css-loader", options: {camelCase: true, modules: true, minimize: true}},
+                            {loader: "typings-for-css-modules-loader", options: {camelCase: true, modules: true, minimize: true, namedExport: true}},
                             {loader: "resolve-url-loader"},
                             {loader: "sass-loader", options: {sourceMap: true}},
                             // make base classes / variables available everywhere
@@ -98,7 +103,7 @@ module.exports = function (env) {
                     use: ExtractTextPlugin.extract({
                         fallback: "style-loader",
                         use: [
-                            {loader: "css-loader", options: {modules: false, minimize: true}},
+                            {loader: "css-loader", options: {minimize: true, modules: false}},
                             {loader: "resolve-url-loader"},
                             {loader: "sass-loader", options: {sourceMap: true}}
                         ]

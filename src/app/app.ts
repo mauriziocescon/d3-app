@@ -1,4 +1,4 @@
-import { appComponent } from "./app.scss";
+import * as styles from "./app.scss";
 
 import BarChartComponent from "./bar-chart/bar-chart";
 import NavigationBarComponent from "./navigation-bar/navigation-bar";
@@ -18,7 +18,7 @@ export default class AppComponent {
     protected render(): void {
         // Create external div
         this.el = document.createElement("div");
-        this.el.classList.add(appComponent, "container-fluid");
+        this.el.classList.add(styles.appComponent, "container-fluid");
 
         // NavigationBar
         this.navigationBarComponent = new NavigationBarComponent();

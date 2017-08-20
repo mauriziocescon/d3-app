@@ -1,9 +1,6 @@
 import * as d3 from "d3";
 
-import {
-    barChart,
-    barChartComponent,
-} from "./bar-chart.scss";
+import * as styles from "./bar-chart.scss";
 
 export default class BarChartComponent {
     public el: HTMLElement;
@@ -30,7 +27,7 @@ export default class BarChartComponent {
     protected render(): void {
         // Create external div
         this.el = document.createElement("div");
-        this.el.classList.add(barChartComponent);
+        this.el.classList.add(styles.barChartComponent);
 
         // Bootstrap card
         const card = document.createElement("div");
@@ -49,7 +46,7 @@ export default class BarChartComponent {
 
         // BarChart
         this.barChart = document.createElement("div");
-        this.barChart.classList.add(barChart);
+        this.barChart.classList.add(styles.barChart);
         cardBody.appendChild(this.barChart);
 
         // Draw BarChart
