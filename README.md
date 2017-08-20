@@ -27,13 +27,15 @@ Starter Kit for a d3 application
 
 6. [Sass](http://sass-lang.com/) 
 
-7. [Webpack](https://webpack.js.org/) 
+7. [css-modules](https://github.com/css-modules/css-modules) with ``base.scss`` [variables & classes shared across all SASS styles](https://github.com/shakacode/sass-resources-loader) and [Typescript typings](https://github.com/Jimdo/typings-for-css-modules-loader) 
 
-8. [Babel](https://babeljs.io/) 
+8. [Webpack](https://webpack.js.org/) 
 
-9. [TSLint](https://palantir.github.io/tslint/) 
+9. [Babel](https://babeljs.io/) 
 
-10. [Stylelint](https://stylelint.io/) 
+10. [TSLint](https://palantir.github.io/tslint/) 
+
+11. [Stylelint](https://stylelint.io/) 
 
 ## Working with editors/IDEs supporting “safe write”
 
