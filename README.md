@@ -27,7 +27,7 @@ Starter Kit for a d3 application
 
 6. [Sass](http://sass-lang.com/) 
 
-7. [css-modules](https://github.com/css-modules/css-modules) (with ``assets/stylesheets/base.scss`` [variables shared across all SASS styles](https://github.com/shakacode/sass-resources-loader) and [Typescript typings](https://github.com/Jimdo/typings-for-css-modules-loader) 
+7. [css-modules](https://github.com/css-modules/css-modules) (with variables in ``assets/stylesheets/base.scss`` [shared across all SASS styles](https://github.com/shakacode/sass-resources-loader) and [Typescript typings](https://github.com/Jimdo/typings-for-css-modules-loader) 
 
 8. [Webpack](https://webpack.js.org/) 
 
