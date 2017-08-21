@@ -27,7 +27,7 @@ Starter Kit for a d3 application
 
 6. [Sass](http://sass-lang.com/) 
 
-7. [css-modules](https://github.com/css-modules/css-modules) (with variables in ``assets/stylesheets/base.scss`` [shared across all SASS styles](https://github.com/shakacode/sass-resources-loader) and [Typescript typings](https://github.com/Jimdo/typings-for-css-modules-loader)) 
+7. [CSS Modules](https://github.com/css-modules/css-modules) 
 
 8. [Webpack](https://webpack.js.org/) 
 
@@ -36,6 +36,12 @@ Starter Kit for a d3 application
 10. [TSLint](https://palantir.github.io/tslint/) 
 
 11. [Stylelint](https://stylelint.io/) 
+
+## CSS Modules
+
+1. [sass-resources-loader](https://github.com/shakacode/sass-resources-loader): variables / classes in ``assets/stylesheets/base.scss`` are shared across all SASS styles
+
+2. [typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader): Typescript typings for each sass file
 
 ## Working with editors/IDEs supporting “safe write”
 
