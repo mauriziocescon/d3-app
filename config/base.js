@@ -3,7 +3,6 @@ const path = require("path");
 const CleanPlugin = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
@@ -70,9 +69,6 @@ module.exports = function (env) {
                     return module.context && module.context.indexOf("node_modules") !== -1;
                 }
             }),
-
-            // Speed up build caching node_modules
-            // new HardSourceWebpackPlugin(),
 
             // Generate a manifest file which contains a mapping of all asset filenames
             // to their corresponding output file so that tools can pick it up without
@@ -175,7 +171,7 @@ module.exports = function (env) {
                     test: /\.(ts|tsx)?$/,
                     exclude: /node_modules/,
                     use: [
-                        {loader: "awesome-typescript-loader", options: {useBabel: true}}
+                        {loader: "awesome-typescript-loader", options: {useBabel: true, useCache: true}}
                     ]
                 },
 
