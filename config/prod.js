@@ -1,5 +1,7 @@
 const webpack = require("webpack");
+const path = require("path");
 const webpackMerge = require("webpack-merge");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 const commonConfig = require("./base.js");
@@ -11,12 +13,7 @@ module.exports = function (env) {
 
         plugins: [
 
-            new webpack.optimize.UglifyJsPlugin({
-                mangle: {
-                    keep_fnames: true
-                },
-                sourceMap: true
-            }),
+            new ExtractTextPlugin("[name].[hash].css"),
 
             // Generate a manifest file which contains a mapping of all asset filenames
             // to their corresponding output file so that tools can pick it up without
@@ -55,11 +52,71 @@ module.exports = function (env) {
                 staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
             }),
 
+            new webpack.optimize.UglifyJsPlugin({
+                mangle: {
+                    keep_fnames: true
+                },
+                sourceMap: true
+            }),
+
             new webpack.DefinePlugin({
                 "process.env": {
                     "ENV": JSON.stringify("production")
                 }
             })
-        ]
+        ],
+
+        module: {
+
+            rules: [
+
+                // creates style nodes from JS strings
+                // translates CSS into CommonJS
+                // compiles Sass to CSS
+                {
+                    test: /\.scss$/,
+                    exclude: /styles.scss$/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: "style-loader",
+                        use: [
+                            {loader: "typings-for-css-modules-loader", options: {camelCase: true, modules: true, minimize: true, namedExport: true}},
+                            {loader: "resolve-url-loader"},
+                            {loader: "sass-loader", options: {sourceMap: true}},
+                            {loader: "sass-resources-loader", options: {resources: "./src/assets/stylesheets/base.scss"}}
+                        ]
+                    })
+                },
+
+                // creates style nodes from JS strings
+                // translates CSS into CommonJS
+                // compiles Sass to CSS
+                //
+                // global sass
+                {
+                    test: /styles.scss$/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: "style-loader",
+                        use: [
+                            {loader: "css-loader", options: {minimize: true, modules: false}},
+                            {loader: "resolve-url-loader"},
+                            {loader: "sass-loader", options: {sourceMap: true}}
+                        ]
+                    })
+                },
+
+                // images loader
+                {
+                    test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                    use: [
+                        {loader: "file-loader", options: {name: "[name].[hash].[ext]"}}
+                    ]
+                }
+            ]
+        },
+
+        output: {
+            path: path.resolve(__dirname, "../dist"),
+            filename: "[name].[hash].js"
+        }
     });
 };
