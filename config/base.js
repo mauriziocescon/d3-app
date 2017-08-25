@@ -9,7 +9,7 @@ const {CheckerPlugin} = require("awesome-typescript-loader");
 
 module.exports = function (env) {
 
-    const fileName = env.name === "prod" ? "[name]" : "[name].[hash]";
+    const fileName = env.name === "prod" ? "[name].[hash]" : "[name]";
 
     return {
         entry: {
@@ -90,8 +90,7 @@ module.exports = function (env) {
                             {loader: "typings-for-css-modules-loader", options: {camelCase: true, modules: true, minimize: true, namedExport: true}},
                             {loader: "resolve-url-loader"},
                             {loader: "sass-loader", options: {sourceMap: true}},
-                            {loader: "sass-resources-loader", options: {resources: "./src/assets/stylesheets/base.scss"}
-                            }
+                            {loader: "sass-resources-loader", options: {resources: "./src/assets/stylesheets/base.scss"}}
                         ]
                     })
                 },
