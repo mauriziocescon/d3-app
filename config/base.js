@@ -77,11 +77,11 @@ module.exports = function (env) {
                     test: /\.html?$/,
                     exclude: /index.html$/,
                     use: [
-                        {loader: "html-loader", options: {exportAsEs6Default: true}}
+                        {loader: "html-loader", options: {exportAsEs6Default: true, minimize: true}}
                     ]
                 },
 
-                // all files with a ".ts" or ".tsx" extension will be handled by ts-loader
+                // all files with a ".ts" or ".tsx" extension will be handled by awesome-typescript-loader
                 {
                     test: /\.(ts|tsx)?$/,
                     exclude: /node_modules/,
