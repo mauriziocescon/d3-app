@@ -1,3 +1,4 @@
+// tslint:disable
 const webpack = require("webpack");
 const path = require("path");
 const webpackMerge = require("webpack-merge");

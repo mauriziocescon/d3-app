@@ -1,3 +1,4 @@
+// tslint:disable
 const webpack = require("webpack");
 const path = require("path");
 const CleanPlugin = require("clean-webpack-plugin");
@@ -46,7 +47,7 @@ module.exports = (env) => {
 
             // new CheckerPlugin(),
             new ForkTsCheckerWebpackPlugin({
-                tslint: false,
+                tslint: true,
                 watch: ["./src/"], // optional but improves performance (less stat calls)
             }),
 
@@ -104,7 +105,7 @@ module.exports = (env) => {
                     exclude: [/node_modules/, /config/],
                     enforce: "pre",
                     use: [
-                        {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}},
+                        // {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}},
                         {loader: "preprocess-loader", options: {}},
                     ],
                 },
