@@ -3,7 +3,7 @@ const path = require("path");
 const webpackMerge = require("webpack-merge");
 const commonConfig = require("./base.js");
 
-module.exports = function (env) {
+module.exports = (env) => {
     return webpackMerge(commonConfig(env), {
 
         devtool: "eval-cheap-module-source-map",
@@ -12,12 +12,12 @@ module.exports = function (env) {
 
             new webpack.DefinePlugin({
                 "process.env": {
-                    "ENV": JSON.stringify("development")
-                }
-            })
+                    "ENV": JSON.stringify("development"),
+                },
+            }),
         ],
 
-        module:{
+        module: {
 
             rules: [
 
@@ -32,8 +32,8 @@ module.exports = function (env) {
                         {loader: "typings-for-css-modules-loader", options: {camelCase: true, modules: true, minimize: true, namedExport: true}},
                         {loader: "resolve-url-loader"},
                         {loader: "sass-loader", options: {sourceMap: true}},
-                        {loader: "sass-resources-loader", options: {resources: "./src/assets/stylesheets/base.scss"}}
-                    ]
+                        {loader: "sass-resources-loader", options: {resources: "./src/assets/stylesheets/base.scss"}},
+                    ],
                 },
 
                 // creates style nodes from JS strings
@@ -47,23 +47,23 @@ module.exports = function (env) {
                         {loader: "style-loader"},
                         {loader: "css-loader", options: {minimize: true, modules: false}},
                         {loader: "resolve-url-loader"},
-                        {loader: "sass-loader", options: {sourceMap: true}}
-                    ]
+                        {loader: "sass-loader", options: {sourceMap: true}},
+                    ],
                 },
 
                 // images loader
                 {
                     test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                     use: [
-                        {loader: "file-loader", options: {name: "[name].[ext]"}}
-                    ]
-                }
-            ]
+                        {loader: "file-loader", options: {name: "[name].[ext]"}},
+                    ],
+                },
+            ],
         },
 
         output: {
             path: path.resolve(__dirname, "../dist"),
-            filename: "[name].js"
+            filename: "[name].js",
         },
 
         devServer: {
@@ -74,8 +74,8 @@ module.exports = function (env) {
             open: true,
             overlay: {
                 warnings: true,
-                errors: true
-            }
-        }
+                errors: true,
+            },
+        },
     });
 };

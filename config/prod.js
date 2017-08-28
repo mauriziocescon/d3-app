@@ -6,7 +6,7 @@ const ManifestPlugin = require("webpack-manifest-plugin");
 const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 const commonConfig = require("./base.js");
 
-module.exports = function (env) {
+module.exports = (env) => {
     return webpackMerge(commonConfig(env), {
 
         devtool: "source-map",
@@ -19,7 +19,7 @@ module.exports = function (env) {
             // to their corresponding output file so that tools can pick it up without
             // having to parse `index.html`.
             new ManifestPlugin({
-                fileName: "asset-manifest.json"
+                fileName: "asset-manifest.json",
             }),
             // Generate a service worker script that will precache, and keep up to date,
             // the HTML & assets that are part of the Webpack build.
@@ -49,21 +49,21 @@ module.exports = function (env) {
                 // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
                 navigateFallbackWhitelist: [/^(?!\/__).*/],
                 // Don't precache sourcemaps (they're large) and build asset manifest:
-                staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
+                staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
             }),
 
             new webpack.optimize.UglifyJsPlugin({
                 mangle: {
-                    keep_fnames: true
+                    keep_fnames: true,
                 },
-                sourceMap: true
+                sourceMap: true,
             }),
 
             new webpack.DefinePlugin({
                 "process.env": {
-                    "ENV": JSON.stringify("production")
-                }
-            })
+                    "ENV": JSON.stringify("production"),
+                },
+            }),
         ],
 
         module: {
@@ -82,9 +82,9 @@ module.exports = function (env) {
                             {loader: "typings-for-css-modules-loader", options: {camelCase: true, modules: true, minimize: true, namedExport: true}},
                             {loader: "resolve-url-loader"},
                             {loader: "sass-loader", options: {sourceMap: true}},
-                            {loader: "sass-resources-loader", options: {resources: "./src/assets/stylesheets/base.scss"}}
-                        ]
-                    })
+                            {loader: "sass-resources-loader", options: {resources: "./src/assets/stylesheets/base.scss"}},
+                        ],
+                    }),
                 },
 
                 // creates style nodes from JS strings
@@ -99,24 +99,24 @@ module.exports = function (env) {
                         use: [
                             {loader: "css-loader", options: {minimize: true, modules: false}},
                             {loader: "resolve-url-loader"},
-                            {loader: "sass-loader", options: {sourceMap: true}}
-                        ]
-                    })
+                            {loader: "sass-loader", options: {sourceMap: true}},
+                        ],
+                    }),
                 },
 
                 // images loader
                 {
                     test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                     use: [
-                        {loader: "file-loader", options: {name: "[name].[hash].[ext]"}}
-                    ]
-                }
-            ]
+                        {loader: "file-loader", options: {name: "[name].[hash].[ext]"}},
+                    ],
+                },
+            ],
         },
 
         output: {
             path: path.resolve(__dirname, "../dist"),
-            filename: "[name].[hash].js"
-        }
+            filename: "[name].[hash].js",
+        },
     });
 };
