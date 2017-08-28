@@ -10,8 +10,8 @@
     "npm": ">=3.10.10"
   },
   "scripts": {
-    "build": "webpack --progress --colors --env.name=prod",
-    "serve": "webpack-dev-server --d --progress --colors --env.name=dev"
+    "build": "webpack --profile --colors --env.name=prod",
+    "serve": "webpack-dev-server --d --profile --colors --env.name=dev"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "d3": "4.10.0",
     "font-awesome": "4.7.0",
     "jquery": "3.2.1",
-    "popper.js": "1.12.3",
+    "popper.js": "1.12.4",
     "roboto-fontface": "0.8.0"
   },
   "devDependencies": {
