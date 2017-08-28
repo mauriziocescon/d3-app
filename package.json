@@ -10,8 +10,8 @@
     "npm": ">=3.10.10"
   },
   "scripts": {
-    "build": "webpack --progress --colors --env.name=prod",
-    "serve": "webpack-dev-server --d --progress --colors --env.name=dev"
+    "build": "webpack --profile --colors --env.name=prod",
+    "serve": "webpack-dev-server --d --profile --colors --env.name=dev"
   },
   "repository": {
     "type": "git",
