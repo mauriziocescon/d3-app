@@ -6,7 +6,7 @@ const ManifestPlugin = require("webpack-manifest-plugin");
 const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 const commonConfig = require("./base.js");
 
-module.exports = function (env) {
+module.exports = (env) => {
     return webpackMerge(commonConfig(env), {
 
         devtool: "source-map",
