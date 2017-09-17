@@ -2,7 +2,7 @@ import AppComponent from "./app/app";
 
 class Main {
     public static app: AppComponent;
-    public static rootEl: HTMLElement;
+    public static rootEl: HTMLElement | null;
 
     public static appReady(): void {
         Main.loadApp();
@@ -16,7 +16,9 @@ class Main {
         this.app = new AppComponent();
 
         // Append appComponent element to the DOM
-        this.rootEl.appendChild(this.app.el);
+        if (this.rootEl) {
+            this.rootEl.appendChild(this.app.el);
+        }
     }
 }
 

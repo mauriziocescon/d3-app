@@ -45,6 +45,13 @@ module.exports = (env) => {
                 from: "src/assets/imgs", to: "assets/imgs",
             }]),
 
+            // Automatically load modules instead of
+            // having to import or require them everywhere
+            new webpack.ProvidePlugin({
+                $: "jquery",
+                jQuery: "jquery"
+            }),
+
             // new CheckerPlugin(),
             new ForkTsCheckerWebpackPlugin({
                 tslint: true,
@@ -118,7 +125,24 @@ module.exports = (env) => {
                         {loader: "source-map-loader"},
                     ],
                 },
-            ],
-        },
+
+                // add jQuery to the global object
+                {
+                    test: require.resolve("jquery"),
+                    use: [
+                        {loader: "expose-loader", options: "jQuery"},
+                        {loader: "expose-loader", options: "$"},
+                    ],
+                },
+
+                // add Popper to the global object
+                {
+                    test: require.resolve("popper.js"),
+                    use: [
+                        {loader: "expose-loader", options: "Popper"},
+                    ],
+                },
+            ]
+        }
     };
 };
