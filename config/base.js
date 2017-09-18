@@ -112,7 +112,7 @@ module.exports = (env) => {
                     exclude: [/node_modules/, /config/],
                     enforce: "pre",
                     use: [
-                        // {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}},
+                        {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}},
                         {loader: "preprocess-loader", options: {}},
                     ],
                 },
