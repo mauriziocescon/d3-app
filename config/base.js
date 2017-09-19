@@ -53,7 +53,6 @@ module.exports = (env) => {
                 jQuery: "jquery",
             }),
 
-            // new CheckerPlugin(),
             new ForkTsCheckerWebpackPlugin({
                 tslint: true,
                 watch: ["./src/"], // optional but improves performance (less stat calls)
