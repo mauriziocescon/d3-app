@@ -1,4 +1,4 @@
-// tslint:disable
+// tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require("webpack");
 const path = require("path");
 const webpackMerge = require("webpack-merge");

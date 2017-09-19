@@ -1,4 +1,4 @@
-// tslint:disable
+// tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require("webpack");
 const path = require("path");
 const CleanPlugin = require("clean-webpack-plugin");
@@ -50,7 +50,7 @@ module.exports = (env) => {
             // having to import or require them everywhere
             new webpack.ProvidePlugin({
                 $: "jquery",
-                jQuery: "jquery"
+                jQuery: "jquery",
             }),
 
             // new CheckerPlugin(),
@@ -94,9 +94,9 @@ module.exports = (env) => {
                     ],
                 },
 
-                // all files with a ".ts" or ".tsx" extension will be handled by awesome-typescript-loader
+                // all files with ".js .ts .tsx" extensions will be handled by ts-loader
                 {
-                    test: /\.(ts|tsx)?$/,
+                    test: /\.(js|ts|tsx)?$/,
                     exclude: [/node_modules/, /config/],
                     use: [
                         {loader: "cache-loader"},
@@ -107,13 +107,12 @@ module.exports = (env) => {
                     ],
                 },
 
-                // preprocess + ts-lint
+                // preprocess
                 {
-                    test: /\.(ts|tsx)?$/,
+                    test: /\.(js|ts|tsx)?$/,
                     exclude: [/node_modules/, /config/],
                     enforce: "pre",
                     use: [
-                        {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}},
                         {loader: "preprocess-loader", options: {}},
                     ],
                 },
@@ -143,7 +142,7 @@ module.exports = (env) => {
                         {loader: "expose-loader", options: "Popper"},
                     ],
                 },
-            ]
-        }
+            ],
+        },
     };
 };
