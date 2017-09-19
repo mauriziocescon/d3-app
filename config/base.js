@@ -9,6 +9,7 @@ const StyleLintPlugin = require("stylelint-webpack-plugin");
 
 module.exports = (env) => {
     return {
+
         entry: {
             app: "./src/main.ts",
             vendor: "./src/vendor.ts",

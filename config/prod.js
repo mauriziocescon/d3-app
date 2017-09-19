@@ -14,6 +14,12 @@ module.exports = (env) => {
 
         plugins: [
 
+            new webpack.DefinePlugin({
+                "process.env": {
+                    "ENV": JSON.stringify("production"),
+                },
+            }),
+
             new ExtractTextPlugin("[name].[hash].css"),
 
             // Generate a manifest file which contains a mapping of all asset filenames
@@ -58,12 +64,6 @@ module.exports = (env) => {
                     keep_fnames: true,
                 },
                 sourceMap: true,
-            }),
-
-            new webpack.DefinePlugin({
-                "process.env": {
-                    "ENV": JSON.stringify("production"),
-                },
             }),
         ],
 
