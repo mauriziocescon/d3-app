@@ -54,6 +54,7 @@ module.exports = (env) => {
             }),
 
             new ForkTsCheckerWebpackPlugin({
+                checkSyntacticErrors: true,
                 tslint: true,
                 watch: ["./src/"], // optional but improves performance (less stat calls)
             }),
