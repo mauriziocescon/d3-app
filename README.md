@@ -19,7 +19,7 @@ Starter Kit for a d3 application
 
 2. [d3.js](https://d3js.org/)
 
-3. [Typescript](https://www.typescriptlang.org/) (with ``--strict true``)
+3. [Typescript](https://www.typescriptlang.org/) (with ``--strict true``) 
 
 4. [Bootstrap](https://getbootstrap.com)
 
