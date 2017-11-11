@@ -43,6 +43,10 @@ Starter Kit for a d3 application
 
 2. [typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader): Typescript typings for each sass file
 
+## Backend implementation 
+
+Definition of mock responses using [json-server](https://github.com/typicode/json-server) and [faker](https://github.com/Marak/faker.js) (APIs available at `http://localhost:5000`)
+
 ## Working with editors/IDEs supporting “safe write”
 
 Take a look at the following [page](https://webpack.github.io/docs/webpack-dev-server.html#working-with-editors-ides-supporting-safe-write) if you use IntelliJ or VIM 
