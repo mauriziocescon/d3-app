@@ -20,16 +20,18 @@
     "url": "https://github.com/mauriziocescon/react-app"
   },
   "keywords": [
-    "d3",
     "bootstrap",
     "cescon",
+    "css-modules",
+    "d3",
     "es2017",
+    "jest",
+    "json-server",
     "maurizio",
     "sass",
     "typescript",
     "vendor",
-    "webpack",
-    "json-server"
+    "webpack"
   ],
   "licenses": [
     {
