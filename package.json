@@ -59,6 +59,7 @@
     "@types/node": "8.0.52",
     "@types/popper.js": "1.11.0",
     "babel-core": "6.26.0",
+    "babel-jest": "21.2.0",
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.1",
     "cache-loader": "1.1.0",
@@ -110,6 +111,9 @@
       "js",
       "jsx",
       "json"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(less|scss)$": "babel-jest"
+    }
   }
 }
