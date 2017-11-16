@@ -11,9 +11,12 @@
   },
   "scripts": {
     "postinstall": "node ./mock-server/db-creator.js",
+    "prestart": "npm run build",
+    "start": "npm run json-server",
     "json-server": "nodemon ./mock-server/server.js",
-    "build": "webpack --profile --colors --env.name=prod",
-    "serve": "webpack-dev-server --d --profile --colors --env.name=dev | npm run json-server",
+
+    "build": "webpack --progress --profile --colors --env.name=prod",
+    "serve": "webpack-dev-server --d --progress --profile --colors --env.name=dev | npm run json-server",
     "test": "jest src"
   },
   "repository": {
