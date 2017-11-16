@@ -25,6 +25,11 @@ module.exports = (env) => {
 
         plugins: [
 
+            // environment variables
+            new webpack.NormalModuleReplacementPlugin(/\/environments\/environment/, (resource) => {
+                resource.request = resource.request.replace("environments/environment", `environments/environment${env.name === "dev" ? "" : `.${env.name}`}`);
+            }),
+
             // scope hoisting
             new webpack.optimize.ModuleConcatenationPlugin(),
 
