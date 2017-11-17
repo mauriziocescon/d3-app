@@ -12,7 +12,11 @@ Starter Kit for a d3 application
 4. On the console, run ``npm run build`` in order to build the code inside *dist* 
 
 5. On the console, run ``npm run serve`` in order to launch the application 
-  
+
+## Backend implementation 
+
+Definition of mock responses using [json-server](https://github.com/typicode/json-server) and [faker](https://github.com/Marak/faker.js) (APIs available at `http://localhost:5000/api/`)
+
 ## Libs & Tooling
 
 1. [jQuery.js](https://jquery.com/)
@@ -43,9 +47,13 @@ Starter Kit for a d3 application
 
 2. [typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader): Typescript typings for each sass file
 
-## Backend implementation 
+## Unit-tests (Jest)
 
-Definition of mock responses using [json-server](https://github.com/typicode/json-server) and [faker](https://github.com/Marak/faker.js) (APIs available at `http://localhost:5000`)
+1. The unit-tests are written in typescript using Jest. You find all the files searching for *__.spec.ts*
+ 
+2. On the console, run ``npm test`` for executing them 
+
+3. Tests are also executed automatically by [Travis CI](https://travis-ci.com/)
 
 ## Working with editors/IDEs supporting “safe write”
 
