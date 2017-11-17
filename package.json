@@ -14,7 +14,6 @@
     "prestart": "npm run build",
     "start": "npm run json-server",
     "json-server": "nodemon ./mock-server/server.js",
-
     "build": "webpack --progress --profile --colors --env.name=prod",
     "serve": "webpack-dev-server --d --progress --profile --colors --env.name=dev | npm run json-server",
     "test": "jest src"
