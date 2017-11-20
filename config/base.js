@@ -4,9 +4,9 @@ const fs = require("fs");
 const path = require("path");
 const CleanPlugin = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
+const { CheckerPlugin } = require("awesome-typescript-loader");
 
 module.exports = (env) => {
     return {
@@ -55,18 +55,7 @@ module.exports = (env) => {
                 from: "src/assets/imgs", to: "assets/imgs",
             }]),
 
-            // Automatically load modules instead of
-            // having to import or require them everywhere
-            new webpack.ProvidePlugin({
-                $: "jquery",
-                jQuery: "jquery",
-            }),
-
-            new ForkTsCheckerWebpackPlugin({
-                checkSyntacticErrors: true,
-                tslint: true,
-                watch: ["./src/"], // optional but improves performance (less stat calls)
-            }),
+            new CheckerPlugin(),
 
             // avoid processing *.scss.d.ts
             new webpack.WatchIgnorePlugin([
@@ -108,30 +97,17 @@ module.exports = (env) => {
                     test: /\.(js|ts|tsx)?$/,
                     exclude: [/node_modules/],
                     use: [
-                        {loader: "cache-loader"},
-                        // there should be 1 cpu for the fork-ts-checker-webpack-plugin
-                        {loader: "thread-loader", options: {workers: require("os").cpus().length - 1}},
-                        {loader: "babel-loader", options: {cacheDirectory: true}},
-                        {loader: "ts-loader", options: {happyPackMode: true}},
+                        {loader: "awesome-typescript-loader", options: {useBabel: true, useCache: true}},
                     ],
                 },
 
                 // preprocess
                 {
-                    test: /\.(js|ts|tsx)?$/,
+                    test: /\.(ts|tsx)?$/,
                     exclude: [/node_modules/],
                     enforce: "pre",
                     use: [
-                        {loader: "preprocess-loader", options: {}},
-                    ],
-                },
-
-                // All output ".js" files will have any sourcemaps re-processed by "source-map-loader".
-                {
-                    test: /\.js$/,
-                    enforce: "pre",
-                    use: [
-                        {loader: "source-map-loader"},
+                        {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}},
                     ],
                 },
 
