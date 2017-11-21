@@ -83,7 +83,7 @@ module.exports = (env) => {
                             {loader: "typings-for-css-modules-loader", options: {camelCase: true, modules: true, minimize: true, namedExport: true}},
                             {loader: "resolve-url-loader"},
                             {loader: "sass-loader", options: {sourceMap: true}},
-                            {loader: "sass-resources-loader", options: {resources: "./src/assets/stylesheets/base.scss"}},
+                            {loader: "sass-resources-loader", options: {resources: ["./src/assets/stylesheets/base.scss"]}},
                         ],
                     }),
                 },
