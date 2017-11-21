@@ -72,6 +72,7 @@ module.exports = (env) => {
             compress: true,
             contentBase: path.resolve(__dirname, "dist"),
             historyApiFallback: true,
+            hot: true,
             open: true,
             overlay: {
                 warnings: true,
