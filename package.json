@@ -31,7 +31,9 @@
     "jest",
     "json-server",
     "maurizio",
+    "mock-server",
     "sass",
+    "travis",
     "typescript",
     "vendor",
     "webpack"
