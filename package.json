@@ -6,8 +6,8 @@
   "homepage": "https://github.com/mauriziocescon",
   "private": false,
   "engines": {
-    "node": ">=8.9.1",
-    "npm": ">=5.5.1"
+    "node": "=8.9.1",
+    "npm": "=5.5.1"
   },
   "scripts": {
     "postinstall": "node ./mock-server/db-creator.js",
