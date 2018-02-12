@@ -1,6 +1,10 @@
 Starter Kit for a d3 application
 =========
 
+## Demo 
+
+1. [Demo](https://mc-d3-app.herokuapp.com) powered by Heroku 
+
 ## How to build the app
 
 1. Download and install [NodeJS](https://nodejs.org/en/)
