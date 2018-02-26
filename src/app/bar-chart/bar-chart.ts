@@ -3,10 +3,10 @@ import * as d3 from "d3";
 import * as styles from "./bar-chart.scss";
 
 export default class BarChartComponent {
-    public el: HTMLElement;
+    public el!: HTMLElement;
 
     protected barColor: string;
-    protected barChart: HTMLElement;
+    protected barChart!: HTMLElement;
 
     constructor(barColor: string = "#4285f4") {
         this.barColor = barColor;

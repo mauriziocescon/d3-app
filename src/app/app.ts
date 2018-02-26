@@ -5,11 +5,11 @@ import NavigationBarComponent from "./navigation-bar/navigation-bar";
 import TransitionLabelComponent from "./transition-label/transition-label";
 
 export default class AppComponent {
-    public el: HTMLElement;
+    public el!: HTMLElement;
 
-    protected barChartComponent: BarChartComponent;
-    protected navigationBarComponent: NavigationBarComponent;
-    protected transitionLabelComponent: TransitionLabelComponent;
+    protected barChartComponent!: BarChartComponent;
+    protected navigationBarComponent!: NavigationBarComponent;
+    protected transitionLabelComponent!: TransitionLabelComponent;
 
     constructor() {
         this.render();

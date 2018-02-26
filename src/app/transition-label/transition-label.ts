@@ -3,9 +3,9 @@ import * as d3 from "d3";
 import * as styles from "./transition-label.scss";
 
 export default class TransitionLabelComponent {
-    public el: HTMLElement;
+    public el!: HTMLElement;
 
-    protected cardLabel: HTMLElement;
+    protected cardLabel!: HTMLElement;
 
     constructor() {
         this.render();
