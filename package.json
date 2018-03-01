@@ -89,7 +89,7 @@
     "sw-precache-webpack-plugin": "0.11.4",
     "ts-jest": "22.4.0",
     "tslint": "5.9.1",
-    "tslint-loader": "3.5.3",
+    "tslint-loader": "3.6.0",
     "typescript": "2.7.2",
     "typings-for-css-modules-loader": "1.7.0",
     "webpack": "3.11.0",
