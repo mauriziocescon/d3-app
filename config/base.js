@@ -12,8 +12,8 @@ module.exports = (env) => {
     return {
 
         entry: {
+            vendors: "./src/vendors.ts",
             app: "./src/main.ts",
-            vendor: "./src/vendor.ts",
         },
 
         resolve: {
