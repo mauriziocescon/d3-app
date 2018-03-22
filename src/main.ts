@@ -1,25 +1,25 @@
-import AppComponent from "./app/app";
+import AppComponent from './app/app';
 
 class Main {
-    public static app: AppComponent;
-    public static rootEl: HTMLElement | null;
+  public static app: AppComponent;
+  public static rootEl: HTMLElement | null;
 
-    public static appReady(): void {
-        Main.loadApp();
+  public static appReady(): void {
+    Main.loadApp();
+  }
+
+  protected static loadApp(): void {
+    // Get a reference for the app content
+    this.rootEl = document.getElementById('root');
+
+    // Create appComponent
+    this.app = new AppComponent();
+
+    // Append appComponent element to the DOM
+    if (this.rootEl) {
+      this.rootEl.appendChild(this.app.el);
     }
-
-    protected static loadApp(): void {
-        // Get a reference for the app content
-        this.rootEl = document.getElementById("root");
-
-        // Create appComponent
-        this.app = new AppComponent();
-
-        // Append appComponent element to the DOM
-        if (this.rootEl) {
-            this.rootEl.appendChild(this.app.el);
-        }
-    }
+  }
 }
 
-document.addEventListener("DOMContentLoaded", Main.appReady.bind(Main));
+document.addEventListener('DOMContentLoaded', Main.appReady.bind(Main));

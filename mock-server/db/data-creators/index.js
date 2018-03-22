@@ -6,10 +6,10 @@ const todo = require("./todo");
 const user = require("./user");
 
 module.exports = {
-    album: album,
-    comment: comment,
-    photo: photo,
-    post: post,
-    todo: todo,
-    user: user,
+  album: album,
+  comment: comment,
+  photo: photo,
+  post: post,
+  todo: todo,
+  user: user,
 };
