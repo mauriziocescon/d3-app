@@ -79,7 +79,7 @@ module.exports = (env) => {
               },
               {loader: "resolve-url-loader"},
               {loader: "sass-loader", options: {sourceMap: true}},
-              {loader: "sass-resources-loader", options: {resources: ["./src/assets/stylesheets/base.scss"]}},
+              {loader: "sass-resources-loader", options: {resources: ["./src/assets/stylesheets/all.scss"]}},
             ],
           }),
         },
