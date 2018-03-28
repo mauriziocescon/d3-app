@@ -59,7 +59,7 @@
     "@types/faker": "4.1.2",
     "@types/jest": "22.2.2",
     "@types/jquery": "3.3.1",
-    "@types/node": "9.6.0",
+    "@types/node": "9.6.1",
     "@types/popper.js": "1.11.0",
     "awesome-typescript-loader": "4.0.1",
     "babel-core": "6.26.0",
