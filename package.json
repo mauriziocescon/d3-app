@@ -46,7 +46,7 @@
   ],
   "dependencies": {
     "babel-polyfill": "6.26.0",
-    "bootstrap": "4.0.0",
+    "bootstrap": "4.1.0",
     "d3": "5.0.0",
     "font-awesome": "4.7.0",
     "jquery": "3.3.1",
@@ -59,7 +59,7 @@
     "@types/faker": "4.1.2",
     "@types/jest": "22.2.2",
     "@types/jquery": "3.3.1",
-    "@types/node": "9.6.2",
+    "@types/node": "9.6.4",
     "@types/popper.js": "1.11.0",
     "awesome-typescript-loader": "5.0.0",
     "babel-core": "6.26.0",
