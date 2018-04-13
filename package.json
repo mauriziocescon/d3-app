@@ -54,10 +54,10 @@
     "roboto-fontface": "0.9.0"
   },
   "devDependencies": {
-    "@types/bootstrap": "4.0.1",
+    "@types/bootstrap": "4.1.0",
     "@types/d3": "5.0.0",
     "@types/faker": "4.1.2",
-    "@types/jest": "22.2.2",
+    "@types/jest": "22.2.3",
     "@types/jquery": "3.3.1",
     "@types/node": "9.6.4",
     "@types/popper.js": "1.11.0",
