@@ -30,10 +30,7 @@ module.exports = (env) => {
           exclude: /styles.scss$/,
           use: [
             {loader: "style-loader"},
-            {
-              loader: "typings-for-css-modules-loader",
-              options: {camelCase: true, modules: true, minimize: true, namedExport: true}
-            },
+            {loader: "typings-for-css-modules-loader", options: {camelCase: true, modules: true, minimize: true, namedExport: true, sourceMap: true}},
             {loader: "resolve-url-loader"},
             {loader: "sass-loader", options: {sourceMap: true}},
             {loader: "sass-resources-loader", options: {resources: ["./src/assets/stylesheets/all.scss"]}},
@@ -49,7 +46,7 @@ module.exports = (env) => {
           test: /styles.scss$/,
           use: [
             {loader: "style-loader"},
-            {loader: "css-loader", options: {minimize: true, modules: false}},
+            {loader: "css-loader", options: {minimize: true, modules: false, sourceMap: true}},
             {loader: "resolve-url-loader"},
             {loader: "sass-loader", options: {sourceMap: true}},
           ],

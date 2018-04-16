@@ -73,10 +73,7 @@ module.exports = (env) => {
           use: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-              {
-                loader: "typings-for-css-modules-loader",
-                options: {camelCase: true, modules: true, minimize: true, namedExport: true}
-              },
+              {loader: "typings-for-css-modules-loader", options: {camelCase: true, modules: true, minimize: true, namedExport: true, sourceMap: true}},
               {loader: "resolve-url-loader"},
               {loader: "sass-loader", options: {sourceMap: true}},
               {loader: "sass-resources-loader", options: {resources: ["./src/assets/stylesheets/all.scss"]}},
