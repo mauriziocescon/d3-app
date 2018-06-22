@@ -15,8 +15,9 @@
     "json-server": "node ./mock-server/server.js",
     "json-server-watch": "nodemon --ext js --watch ./mock-server ./mock-server/server.js",
     "serve": "webpack-dev-server --d --progress --profile --colors --env.name=dev | npm run json-server-watch",
-    "build": "webpack --progress --profile --colors --env.name=prod",
-    "test": "jest src"
+    "build": "webpack --progress --profile --json --colors --env.name=prod",
+    "test": "jest src",
+    "bundle-analyzer": "webpack-bundle-analyzer ./dist/stats.json"
   },
   "repository": {
     "type": "git",
@@ -93,6 +94,7 @@
     "typescript": "2.9.2",
     "typings-for-css-modules-loader": "1.7.0",
     "webpack": "4.12.0",
+    "webpack-bundle-analyzer": "2.13.1",
     "webpack-cli": "3.0.8",
     "webpack-dev-server": "3.1.4",
     "webpack-manifest-plugin": "2.0.3",
