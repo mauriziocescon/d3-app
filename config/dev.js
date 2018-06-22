@@ -68,6 +68,7 @@ module.exports = (env) => {
     },
 
     devServer: {
+      port: 4200,
       clientLogLevel: "info",
       compress: true,
       contentBase: path.resolve(__dirname, "dist"),
