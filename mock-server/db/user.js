@@ -1,4 +1,4 @@
-const faker = require("faker");
+const faker = require('faker');
 
 exports.getUser = (id) => {
   return {
