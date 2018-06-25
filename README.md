@@ -51,6 +51,8 @@ Starter Kit for a d3 application
 
 11. [Stylelint](https://stylelint.io/) 
 
+12. [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) 
+
 ## CSS Modules
 
 1. [sass-resources-loader](https://github.com/shakacode/sass-resources-loader): variables / classes in ``assets/stylesheets/base.scss`` are shared across all SASS styles
