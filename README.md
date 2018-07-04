@@ -11,7 +11,7 @@ Starter Kit for a d3 application
 
 2. On the console, run ``npm install``
 
-3. Run ``npm run build`` in order to build the code inside *dist* for distribution 
+3. Run ``npm run build`` in order to build the code inside *dist* for distribution. Run `npm run bundle-analyzer` to analyze the bundle 
 
 4. Run ``npm run serve`` in order to launch the application for development 
    
