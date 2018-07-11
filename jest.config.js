@@ -1,7 +1,8 @@
 module.exports = {
   globals: {
     'ts-jest': {
-      'useBabelrc': true
+      'useBabelrc': true,
+      'enableTsDiagnostics': true,
     }
   },
   transform: {
