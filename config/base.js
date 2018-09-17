@@ -1,24 +1,24 @@
 // tslint:disable:object-literal-sort-keys max-line-length no-console
-const webpack = require("webpack");
-const fs = require("fs");
-const path = require("path");
-const CleanPlugin = require("clean-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const StyleLintPlugin = require("stylelint-webpack-plugin");
-const {CheckerPlugin} = require("awesome-typescript-loader");
+const webpack = require('webpack');
+const fs = require('fs');
+const path = require('path');
+const CleanPlugin = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const {CheckerPlugin} = require('awesome-typescript-loader');
 
 module.exports = (env) => {
   return {
 
     entry: {
-      vendors: "./src/vendors.ts",
-      app: "./src/main.ts",
+      vendors: './src/vendors.ts',
+      app: './src/main.ts',
     },
 
     resolve: {
-      // Add ".ts" and ".tsx" as a resolvable extension.
-      extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".scss", ".html", ".json"],
+      // Add '.ts' and '.tsx' as a resolvable extension.
+      extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.scss', '.html', '.json'],
     },
 
     optimization: {
@@ -27,7 +27,7 @@ module.exports = (env) => {
         cacheGroups: {
           common: {
             test: /node_modules/,
-            chunks: "initial",
+            chunks: 'initial',
           },
         },
       },
@@ -50,21 +50,21 @@ module.exports = (env) => {
       new webpack.optimize.ModuleConcatenationPlugin(),
 
       // clean dist folder
-      new CleanPlugin(["dist", "build"], {
-        root: path.resolve(__dirname, "../"),
+      new CleanPlugin(['dist', 'build'], {
+        root: path.resolve(__dirname, '../'),
         verbose: true,
         dry: false,
         exclude: [],
       }),
 
       new CopyPlugin([{
-        from: "src/index.html",
+        from: 'src/index.html',
       }, {
-        from: "src/manifest.json",
+        from: 'src/manifest.json',
       }, {
-        from: "src/assets/i18n", to: "assets/i18n",
+        from: 'src/assets/i18n', to: 'assets/i18n',
       }, {
-        from: "src/assets/imgs", to: "assets/imgs",
+        from: 'src/assets/imgs', to: 'assets/imgs',
       }]),
 
       new CheckerPlugin(),
@@ -76,8 +76,8 @@ module.exports = (env) => {
 
       // insert file dynamically
       new HtmlWebpackPlugin({
-        template: "src/index.html",
-        inject: "head",
+        template: 'src/index.html',
+        inject: 'head',
       }),
 
       new StyleLintPlugin(),
@@ -92,16 +92,16 @@ module.exports = (env) => {
           test: /\.html?$/,
           exclude: /index.html$/,
           use: [
-            {loader: "html-loader", options: {exportAsEs6Default: true, minimize: true}},
+            {loader: 'html-loader', options: {exportAsEs6Default: true, minimize: true}},
           ],
         },
 
-        // all files with ".js .ts .tsx" extensions will be handled by ts-loader
+        // all files with '.js' '.ts' '.tsx' extensions will be handled by ts-loader
         {
           test: /\.(js|ts|tsx)?$/,
           exclude: [/node_modules/],
           use: [
-            {loader: "awesome-typescript-loader", options: {useBabel: true, useCache: true}},
+            {loader: 'awesome-typescript-loader', options: {useBabel: true, useCache: true}},
           ],
         },
 
@@ -109,26 +109,26 @@ module.exports = (env) => {
         {
           test: /\.(ts|tsx)?$/,
           exclude: [/node_modules/],
-          enforce: "pre",
+          enforce: 'pre',
           use: [
-            {loader: "tslint-loader", options: {emitErrors: false, formatter: "stylish"}},
+            {loader: 'tslint-loader', options: {emitErrors: false, formatter: 'stylish'}},
           ],
         },
 
         // add jQuery to the global object
         {
-          test: require.resolve("jquery"),
+          test: require.resolve('jquery'),
           use: [
-            {loader: "expose-loader", options: "jQuery"},
-            {loader: "expose-loader", options: "$"},
+            {loader: 'expose-loader', options: 'jQuery'},
+            {loader: 'expose-loader', options: '$'},
           ],
         },
 
         // add Popper to the global object
         {
-          test: require.resolve("popper.js"),
+          test: require.resolve('popper.js'),
           use: [
-            {loader: "expose-loader", options: "Popper"},
+            {loader: 'expose-loader', options: 'Popper'},
           ],
         },
       ],

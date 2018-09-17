@@ -1,4 +1,4 @@
-// import * as styles from "./navigation-bar.scss";
+// import * as styles from './navigation-bar.scss';
 
 export default class NavigationBarComponent {
   public el!: HTMLElement;

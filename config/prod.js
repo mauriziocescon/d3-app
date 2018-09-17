@@ -1,33 +1,33 @@
 // tslint:disable:object-literal-sort-keys max-line-length no-console
-const webpack = require("webpack");
-const path = require("path");
-const webpackMerge = require("webpack-merge");
+const webpack = require('webpack');
+const path = require('path');
+const webpackMerge = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const ManifestPlugin = require("webpack-manifest-plugin");
-const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
-const commonConfig = require("./base.js");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const commonConfig = require('./base.js');
 
 module.exports = (env) => {
   return webpackMerge(commonConfig(env), {
 
-    mode: "production",
+    mode: 'production',
 
     plugins: [
 
       new webpack.DefinePlugin({
-        "process.env": {
-          "NODE_ENV": JSON.stringify("production"),
+        'process.env': {
+          'NODE_ENV': JSON.stringify('production'),
         },
       }),
 
-      new ExtractTextPlugin("[name].[hash].css"),
+      new ExtractTextPlugin('[name].[hash].css'),
 
       // Generate a manifest file which contains a mapping of all asset filenames
       // to their corresponding output file so that tools can pick it up without
       // having to parse `index.html`.
       new ManifestPlugin({
-        fileName: "asset-manifest.json",
+        fileName: 'asset-manifest.json',
       }),
       // Generate a service worker script that will precache, and keep up to date,
       // the HTML & assets that are part of the Webpack build.
@@ -37,13 +37,13 @@ module.exports = (env) => {
         // If a URL is already hashed by Webpack, then there is no concern
         // about it being stale, and the cache-busting can be skipped.
         dontCacheBustUrlsMatching: /\.\w{8}\./,
-        filename: "service-worker.js",
+        filename: 'service-worker.js',
         logger(message) {
-          if (message.indexOf("Total precache size is") === 0) {
+          if (message.indexOf('Total precache size is') === 0) {
             // This message occurs for every build and is a bit too noisy.
             return;
           }
-          if (message.indexOf("Skipping static resource") === 0) {
+          if (message.indexOf('Skipping static resource') === 0) {
             // This message obscures real errors so we ignore it.
             // https://github.com/facebookincubator/create-react-app/issues/2612
             return;
@@ -52,7 +52,7 @@ module.exports = (env) => {
         },
         minify: true,
         // For unknown URLs, fallback to the index page
-        navigateFallback: path.resolve(__dirname, "../dist") + "/index.html",
+        navigateFallback: path.resolve(__dirname, '../dist') + '/index.html',
         // Ignores URLs starting from /__ (useful for Firebase):
         // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
         navigateFallbackWhitelist: [/^(?!\/__).*/],
@@ -78,12 +78,12 @@ module.exports = (env) => {
           test: /\.scss$/,
           exclude: /styles.scss$/,
           use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
+            fallback: 'style-loader',
             use: [
-              {loader: "typings-for-css-modules-loader", options: {camelCase: true, modules: true, minimize: true, namedExport: true, sourceMap: true}},
-              {loader: "resolve-url-loader"},
-              {loader: "sass-loader", options: {sourceMap: true}},
-              {loader: "sass-resources-loader", options: {resources: ["./src/assets/stylesheets/all.scss"]}},
+              {loader: 'typings-for-css-modules-loader', options: {camelCase: true, modules: true, minimize: true, namedExport: true, sourceMap: true}},
+              {loader: 'resolve-url-loader', options: {absolute: true}},
+              {loader: 'sass-loader', options: {sourceMap: true}},
+              {loader: 'sass-resources-loader', options: {resources: ['./src/assets/stylesheets/all.scss']}},
             ],
           }),
         },
@@ -96,11 +96,11 @@ module.exports = (env) => {
         {
           test: /styles.scss$/,
           use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
+            fallback: 'style-loader',
             use: [
-              {loader: "css-loader", options: {minimize: true, modules: false}},
-              {loader: "resolve-url-loader"},
-              {loader: "sass-loader", options: {sourceMap: true}},
+              {loader: 'css-loader', options: {minimize: true, modules: false}},
+              {loader: 'resolve-url-loader', options: {absolute: true}},
+              {loader: 'sass-loader', options: {sourceMap: true}},
             ],
           }),
         },
@@ -109,15 +109,15 @@ module.exports = (env) => {
         {
           test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
           use: [
-            {loader: "file-loader", options: {name: "[name].[hash].[ext]"}},
+            {loader: 'file-loader', options: {name: '[name].[hash].[ext]'}},
           ],
         },
       ],
     },
 
     output: {
-      path: path.resolve(__dirname, "../dist"),
-      filename: "[name].[hash].js",
+      path: path.resolve(__dirname, '../dist'),
+      filename: '[name].[hash].js',
     },
   });
 };
