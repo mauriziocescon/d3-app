@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 import 'd3';
 import 'jquery';
 import 'popper.js';

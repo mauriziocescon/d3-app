@@ -6,7 +6,6 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const {CheckerPlugin} = require('awesome-typescript-loader');
 
 module.exports = (env) => {
   return {
@@ -57,8 +56,6 @@ module.exports = (env) => {
         ],
       }),
 
-      new CheckerPlugin(),
-
       // avoid processing *.scss.d.ts
       new webpack.WatchIgnorePlugin({
         paths: [
@@ -96,7 +93,8 @@ module.exports = (env) => {
           test: /\.(js|ts|tsx)?$/,
           exclude: [/node_modules/],
           use: [
-            {loader: 'awesome-typescript-loader', options: {useBabel: true, useCache: true}},
+            {loader: 'babel-loader', options: {cacheDirectory: true, presets: ['@babel/env']}},
+            {loader: 'ts-loader'},
           ],
         },
 

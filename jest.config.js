@@ -18,7 +18,7 @@ module.exports = {
     'tsx',
   ],
   moduleNameMapper: {
-    '^.+\\.(less|scss)$': 'babel-jest',
+    '^.+\\.(css|less|scss)$': 'jest-css-modules',
   },
   preset: 'ts-jest',
   testMatch: null,
