@@ -1,11 +1,11 @@
 // tslint:disable:object-literal-sort-keys max-line-length no-console
 const webpack = require('webpack');
 const path = require('path');
-const webpackMerge = require('webpack-merge');
+const {merge} = require('webpack-merge');
 const commonConfig = require('./base.js');
 
 module.exports = (env) => {
-  return webpackMerge(commonConfig(env), {
+  return merge(commonConfig(env), {
 
     mode: 'development',
 
@@ -30,7 +30,7 @@ module.exports = (env) => {
           exclude: /styles.scss$/,
           use: [
             {loader: 'style-loader'},
-            {loader: 'typings-for-css-modules-loader', options: {camelCase: true, modules: true, minimize: true, namedExport: true, sourceMap: true}},
+            {loader: 'css-loader', options: {modules: true, sourceMap: true}},
             {loader: 'resolve-url-loader', options: {absolute: true}},
             {loader: 'sass-loader', options: {sourceMap: true}},
             {loader: 'sass-resources-loader', options: {resources: ['./src/assets/stylesheets/all.scss']}},

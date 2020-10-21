@@ -46,28 +46,26 @@ module.exports = (env) => {
       // hot module replacement
       new webpack.HotModuleReplacementPlugin({}),
 
-      // scope hoisting
-      new webpack.optimize.ModuleConcatenationPlugin(),
-
       // clean dist folder
-      new CleanWebpackPlugin (),
+      new CleanWebpackPlugin(),
 
-      new CopyPlugin([{
-        from: 'src/index.html',
-      }, {
-        from: 'src/manifest.json',
-      }, {
-        from: 'src/assets/i18n', to: 'assets/i18n',
-      }, {
-        from: 'src/assets/imgs', to: 'assets/imgs',
-      }]),
+      new CopyPlugin({
+        patterns: [
+          {from: 'src/index.html'},
+          {from: 'src/assets/i18n', to: 'assets/i18n'},
+          {from: 'src/assets/imgs', to: 'assets/imgs'},
+        ],
+      }),
 
       new CheckerPlugin(),
 
       // avoid processing *.scss.d.ts
-      new webpack.WatchIgnorePlugin([
-        /css\.d\.ts$/,
-      ]),
+      new webpack.WatchIgnorePlugin({
+        paths: [
+          path.resolve(__dirname, './node_modules/'),
+          /css\.d\.ts$/,
+        ],
+      }),
 
       // insert file dynamically
       new HtmlWebpackPlugin({
@@ -75,7 +73,9 @@ module.exports = (env) => {
         inject: 'head',
       }),
 
-      new StyleLintPlugin(),
+      new StyleLintPlugin({
+        files: 'src/**/*.s?(a|c)ss',
+      }),
     ],
 
     module: {
@@ -87,7 +87,7 @@ module.exports = (env) => {
           test: /\.html?$/,
           exclude: /index.html$/,
           use: [
-            {loader: 'html-loader', options: {exportAsEs6Default: true, minimize: true}},
+            {loader: 'html-loader', options: {esModule: true, minimize: true}},
           ],
         },
 
@@ -114,8 +114,7 @@ module.exports = (env) => {
         {
           test: require.resolve('jquery'),
           use: [
-            {loader: 'expose-loader', options: 'jQuery'},
-            {loader: 'expose-loader', options: '$'},
+            {loader: 'expose-loader', options: {exposes: ['jQuery', '$']}},
           ],
         },
 
@@ -123,7 +122,7 @@ module.exports = (env) => {
         {
           test: require.resolve('popper.js'),
           use: [
-            {loader: 'expose-loader', options: 'Popper'},
+            {loader: 'expose-loader', options: {exposes: ['Popper']}},
           ],
         },
       ],

@@ -1,4 +1,4 @@
-// import * as styles from './navigation-bar.scss';
+import styles from './navigation-bar.scss';
 
 export default class NavigationBarComponent {
   public el!: HTMLElement;
@@ -11,8 +11,13 @@ export default class NavigationBarComponent {
   protected render(): void {
     // Create external nav
     this.el = document.createElement('nav');
-    this.el.classList.add(/*styles.navigationBarComponent,*/
-      'navbar', 'navbar-toggleable-md', 'navbar-inverse', 'bg-primary', 'fixed-top');
+    this.el.classList.add(
+      'navbar',
+      'navbar-toggleable-md',
+      'navbar-inverse',
+      'bg-primary',
+      'fixed-top',
+      );
 
     // Items
     const itemList = document.createElement('ul');

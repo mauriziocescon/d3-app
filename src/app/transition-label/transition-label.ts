@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 
-import * as styles from './transition-label.scss';
+import styles from './transition-label.scss';
 
 export default class TransitionLabelComponent {
   public el!: HTMLElement;
@@ -31,7 +31,7 @@ export default class TransitionLabelComponent {
   protected render(): void {
     // Create external div
     this.el = document.createElement('div');
-    this.el.classList.add(styles.transitionLabelComponent);
+    this.el.classList.add(styles['transition-label-component']);
 
     // Bootstrap card
     const card = document.createElement('div');
@@ -44,7 +44,7 @@ export default class TransitionLabelComponent {
 
     // Card title
     this.cardLabel = document.createElement('h4');
-    this.cardLabel.classList.add(styles.helloLabel, 'card-title');
+    this.cardLabel.classList.add(styles['hello-label'], 'card-title');
     this.cardLabel.appendChild(document.createTextNode('d3.js test: style transition'));
     cardBody.appendChild(this.cardLabel);
 
