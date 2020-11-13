@@ -50,7 +50,6 @@ module.exports = (env) => {
 
       new CopyPlugin({
         patterns: [
-          {from: 'src/index.html'},
           {from: 'src/assets/i18n', to: 'assets/i18n'},
           {from: 'src/assets/imgs', to: 'assets/imgs'},
         ],
