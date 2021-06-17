@@ -117,7 +117,7 @@ module.exports = (env) => {
 
         // add Popper to the global object
         {
-          test: require.resolve('popper.js'),
+          test: require.resolve('@popperjs/core'),
           use: [
             {loader: 'expose-loader', options: {exposes: ['Popper']}},
           ],
