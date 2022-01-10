@@ -61,7 +61,7 @@ export default class TransitionLabelComponent {
 
     // Card button font awesome
     const fa = document.createElement('span');
-    fa.classList.add('fa', 'fa-adjust');
+    fa.classList.add('fas', 'fa-adjust');
     fa.style.marginLeft = '10px';
     button.appendChild(fa);
 

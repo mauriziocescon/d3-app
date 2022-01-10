@@ -7,9 +7,10 @@
 @import "base";
 
 // Vendors
-$fa-font-path: "../../../node_modules/font-awesome/fonts";
-$roboto-font-path: "../../../node_modules/roboto-fontface/fonts";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+$roboto-font-path: "~roboto-fontface/fonts";
 
-@import "../../../node_modules/bootstrap/scss/bootstrap";
-@import "../../../node_modules/font-awesome/scss/font-awesome";
-@import "../../../node_modules/roboto-fontface/css/roboto/sass/roboto-fontface";
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~roboto-fontface/css/roboto/sass/roboto-fontface";
