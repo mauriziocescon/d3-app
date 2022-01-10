@@ -13,7 +13,7 @@ $gray-color: #666;
 // -------------------------------------------------------
 // Bootstrap variables
 
-//== Colors
+// == Colors
 $theme-colors: (
   primary: $primary-color,
   secondary: $secondary-color,
@@ -25,12 +25,12 @@ $theme-colors: (
   dark: $gray-color
 );
 
-//== Typography
+// == Typography
 $font-size-base: 1rem;
 $font-family-base: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
 
-//== Navbar
+// == Navbar
 $navbar-padding-y: 0.75rem;
 
-// Forms
+// == Forms
 $input-group-addon-bg: $primary-color;

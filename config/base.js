@@ -55,14 +55,6 @@ module.exports = (env) => {
         ],
       }),
 
-      // avoid processing *.scss.d.ts
-      new webpack.WatchIgnorePlugin({
-        paths: [
-          path.resolve(__dirname, './node_modules/'),
-          /css\.d\.ts$/,
-        ],
-      }),
-
       // insert file dynamically
       new HtmlWebpackPlugin({
         template: 'src/index.html',
