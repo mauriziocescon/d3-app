@@ -1,4 +1,5 @@
 module.exports = {
+  testEnvironment: 'jsdom',
   testURL: 'http://localhost',
   globals: {
     'ts-jest': {
@@ -21,5 +22,8 @@ module.exports = {
     '^.+\\.(css|less|scss)$': 'jest-css-modules',
   },
   preset: 'ts-jest',
+  moduleNameMapper: {
+    '^d3$': '<rootDir>/node_modules/d3/dist/d3.min.js',
+  },
   testMatch: null,
 }
