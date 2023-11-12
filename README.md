@@ -47,7 +47,7 @@ Starter Kit for a d3 application
 
 9. [Babel](https://babeljs.io/) 
 
-10. [TSLint](https://palantir.github.io/tslint/) 
+10. [EsLint](https://eslint.org) 
 
 11. [Stylelint](https://stylelint.io/) 
 

@@ -1,5 +1,3 @@
-import styles from './navigation-bar.scss';
-
 export default class NavigationBarComponent {
   public el!: HTMLElement;
 
