@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import 'd3';
 import 'jquery';
 import '@popperjs/core';
